@@ -1,9 +1,10 @@
 streamlit
 streamlit_extras
 streamlit_image_select
+streamlit_option_menu
 pandas
 numpy
-cv2
+opencv-python
 time
 io
 PIL
