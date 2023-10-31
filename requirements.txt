@@ -2,9 +2,8 @@ streamlit
 streamlit_extras
 streamlit_image_select
 streamlit_option_menu
-pandas
-numpy
-opencv-python
+streamlit_login_auth_ui
+opencv-python-handless
 time
 io
 PIL

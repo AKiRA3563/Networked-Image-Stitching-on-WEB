@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
+from streamlit_login_auth_ui.widgets import __login__
 
 # from streamlit_extras.switch_page_button import switch_page 
 
@@ -38,7 +39,7 @@ st.markdown("""
 gallery.createTable()
 
 # def login():
-from streamlit_login_auth_ui.widgets import __login__
+
 
 __login__obj = __login__(auth_token = "courier_auth_token", 
                     company_name = "Shims",

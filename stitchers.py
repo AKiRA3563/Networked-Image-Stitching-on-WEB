@@ -1,7 +1,7 @@
 import cv2
 import streamlit as st
 import numpy as np
-import imutils
+# import imutils
 
 
 def stitcher(images, clean_pano=False):
