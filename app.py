@@ -2,8 +2,6 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_login_auth_ui.widgets import __login__
 
-# from streamlit_extras.switch_page_button import switch_page 
-
 import gui
 import gallery
 
@@ -38,14 +36,16 @@ st.markdown("""
 # Create Gallery Table
 gallery.createTable()
 
-__login__obj = __login__(auth_token = "courier_auth_token", 
-                    company_name = "Shims",
+
+# Define streamlit_login_auth_ui
+__login__obj = __login__(auth_token = "The unique authorization token received from - https://www.courier.com/email-api/", 
+                    company_name = "This is the name of the person/ organization which will send the password reset email.",
                     width = 200, height = 250, 
                     logout_button_name = 'Logout', hide_menu_bool = False, 
                     hide_footer_bool = False, 
-                    lottie_url = 'https://assets2.lottiefiles.com/packages/lf20_jcikwtux.json')
+                    lottie_url = 'https://assets2.lottiefiles.com/packages/lf20_jcikwtux.json'
+                    )
 
-    # st.session_state.login = __login__obj.build_login_ui()
 
 # Check logged in session by cookies
 fetched_cookies = __login__obj.cookies
@@ -97,9 +97,6 @@ page_names_to_funcs = {
     m: loginPage,
     "My Gallery": galleryPage,
 }
-
-# demo_name = st.sidebar.selectbox("Choose a demo", page_names_to_funcs.keys())
-# page_names_to_funcs[demo_name]()
 
 selected = option_menu(
     menu_title=None,  # required
