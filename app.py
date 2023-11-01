@@ -38,9 +38,6 @@ st.markdown("""
 # Create Gallery Table
 gallery.createTable()
 
-# def login():
-
-
 __login__obj = __login__(auth_token = "courier_auth_token", 
                     company_name = "Shims",
                     width = 200, height = 250, 
@@ -49,9 +46,8 @@ __login__obj = __login__(auth_token = "courier_auth_token",
                     lottie_url = 'https://assets2.lottiefiles.com/packages/lf20_jcikwtux.json')
 
     # st.session_state.login = __login__obj.build_login_ui()
-    # return __login__obj
 
-#Check logged in session by cookies
+# Check logged in session by cookies
 fetched_cookies = __login__obj.cookies
 if '__streamlit_login_signup_ui_username__' in fetched_cookies.keys():
     username = fetched_cookies['__streamlit_login_signup_ui_username__']
@@ -68,27 +64,21 @@ def loginPage():
         st.subheader(f"Now Login as {username}")
 
 def intro():
-
-    st.write("# Welcome to Networked Image Stitching on WEB! 👋")
-
     st.markdown(
         """
+        # Welcome to Networked Image Stitching on WEB! 👋
         ### Presented by Akiraphat Jukgaew
 
-        #
-        #
-    """
+        """
     )  
 
 def imgStitching():
-    
     gui.main(username)
 
 def pageLock():
     st.write("# Seems like you've logged in!")
 
 def galleryPage():
-
     if username is not ' ':
         gallery.main(username)
     else:
