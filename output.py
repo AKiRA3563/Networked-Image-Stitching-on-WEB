@@ -35,7 +35,7 @@ def visualise(panorama, uploaded_images, user):
 
 # def get_image_download_link(image):
 def button_process(image, user, description):
-
+        
     result = Image.fromarray(image)
     buffered = BytesIO()
     result.save(buffered, format="JPEG")
@@ -61,9 +61,15 @@ def button_process(image, user, description):
     
     if st.session_state.get('download'):
         alert = st.success("Downlaod Complete.")
+        del st.session_state["uploaded_files"]
         time.sleep(5) # Wait for 3 seconds
         alert.empty() # Clear the alert
+        # if st.session_state["uploaded_files"]:
+        
+        st.rerun()
+        
     if st.session_state.get('save'):
+        # del st.session_state["uploaded_files"]
         if user is ' ':
             alert = st.warning('Please login in before saveing image.')
             time.sleep(10) # Wait for 3 seconds
@@ -76,8 +82,11 @@ def button_process(image, user, description):
                 try:
                     c.execute("INSERT INTO GALLERY (IMG_NAME, IMG_DATA, DATE, USER) VALUES (?, ?, date('now'), ?)", (description, byte_im, user))
                     conn.commit()
+                    del st.session_state["uploaded_files"]
                     alert = st.success("Image is added to the Gallery!", icon="✅" )
                     sec = 5
+                    # if st.session_state["uploaded_files"]:
+                    
                 except sqlite3.Error as e:
                     # alert = st.warning('Something went wrong! Try Again.', icon="⚠️")
                     # print(type(str(e)))
@@ -89,7 +98,7 @@ def button_process(image, user, description):
                     sec = 10
             time.sleep(sec) # Wait for x seconds
             alert.empty() # Clear the alert
-        
+            st.rerun()
 
     return btn
 
@@ -98,16 +107,3 @@ def simplified_output(uploaded_images):
     # Display uploaded images as is with no modifications
     st.subheader('Uploaded Images (Displayed in the order of upload)')
     st.image(uploaded_images, width=200, channels="BGR")
-
-
-# def verbose_output(uploaded_images):
-#     # Displays the individual images including the following information:
-#     # 1- Images with their corresponding features
-#     #    detections and matches with found by OpenCV
-#     # 2- Ground truth feature locations
-
-#     st.header('Uploaded Images w/ detected feature \
-#               annotations (Displayed in the order of upload)')
-#     uploaded_images = traditional_stitcher(uploaded_images)
-#     # TODO Add feature matching indicators if applicable
-#     st.image(uploaded_images, width=400, channels="BGR")
