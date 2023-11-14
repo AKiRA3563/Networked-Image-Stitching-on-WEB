@@ -36,16 +36,14 @@ st.markdown("""
 # Create Gallery Table
 gallery.createTable()
 
-
 # Define streamlit_login_auth_ui
-__login__obj = __login__(auth_token = "The unique authorization token received from - https://www.courier.com/email-api/", 
-                    company_name = "This is the name of the person/ organization which will send the password reset email.",
+__login__obj = __login__(auth_token = "dk_prod_MA4TQ4BPVT4QGMHYD2Y7P9FPNQQ5", 
+                    company_name = "Akra's Space",
                     width = 200, height = 250, 
                     logout_button_name = 'Logout', hide_menu_bool = False, 
                     hide_footer_bool = False, 
                     lottie_url = 'https://assets2.lottiefiles.com/packages/lf20_jcikwtux.json'
                     )
-
 
 # Check logged in session by cookies
 fetched_cookies = __login__obj.cookies
@@ -55,7 +53,6 @@ if '__streamlit_login_signup_ui_username__' in fetched_cookies.keys():
         username = ' '
 else:
     username = ' '
-
 
 def loginPage():
     LOGGED_IN = __login__obj.build_login_ui()   
@@ -69,6 +66,8 @@ def intro():
         # Welcome to Networked Image Stitching on WEB! 👋
         ### Presented by Akiraphat Jukgaew
 
+        ##
+        ##
         """
     )  
 
