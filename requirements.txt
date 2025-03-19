@@ -2,7 +2,7 @@ streamlit
 streamlit_extras
 streamlit_image_select
 streamlit_option_menu
-streamlit_login_auth_ui
+streamlit-login-auth-ui
 opencv-python-headless
 time
 io
