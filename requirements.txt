@@ -3,7 +3,7 @@ streamlit_extras
 streamlit_image_select
 streamlit_option_menu
 streamlit_login_auth_ui
-opencv-python-handless
+opencv-python-headless
 time
 io
 PIL
